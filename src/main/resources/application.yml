@@ -1,0 +1,10 @@
+server:
+  port: 9999
+  tomcat:
+    uri-encoding: UTF-8
+com:
+  bluefox:
+    port: 123456789
+spring:
+  profiles:
+    active: dev

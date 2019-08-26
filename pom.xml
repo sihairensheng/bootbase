@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.7.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.bluefox.spring</groupId>
+    <artifactId>boot-base</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>boot-base</name>
+    <description>Demo project for Spring Boot</description>
+
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
+
+    <dependencies>
+
+        <!-- 热部署插件 -->
+        <!--   具体步骤
+          1.开启IDEA的自动编译(静态):打开顶部工具栏 File -> Settings -> Default Settings -> Build -> Compiler 然后勾选 Build project automatically
+          2.同时按住 Ctrl + Shift + Alt + / 然后进入Registry ，勾选自动编译并调整延时参数(compiler.automake.allow.when.app.running -> 自动编译,
+          compile.document.save.trigger.delay -> 自动更新文件,compiler.automake.trigger.delay ->自动更新静态文件如JS CSS
+          3.顶部菜单- >Edit Configurations->SpringBoot插件->目标项目->勾选热更新(On 'Update' action和On frame deactivation都改为Update classes and resources)
+         -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+        </dependency>
+
+      <!--  自定义配置时使用到的注解需要的处理类 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- 监控 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+    </dependencies>
+    <distributionManagement>
+        <repository>
+        <!-- releases正式版发布地址 -->
+            <id>nexus_release</id>
+            <name>nexus_release</name>
+            <url>http://192.168.0.101:8888/nexus/content/repositories/releases/</url>
+        </repository>
+        <snapshotRepository>
+            <!-- snapshots开发版发布地址 -->
+            <id>nexus_snapshots</id>
+            <name>nexus_snapshots</name>
+            <url>http://192.168.0.101:8888/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

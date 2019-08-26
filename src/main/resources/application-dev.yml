@@ -1,0 +1,18 @@
+server:
+  port: ${server.port}
+  tomcat:
+    uri-encoding: UTF-8
+com:
+  bluefox:
+    port: abcdef
+    code: 1428751
+spring:
+  resources:
+    add-mappings: false
+  task:
+    pool:
+      core-pool-size: 1
+      max-pool-size: 5
+      keep-alive-seconds: 60
+      queue-capacity: 5
+      thread-name-prefix: BLUEFOX-ASYNCTASK-

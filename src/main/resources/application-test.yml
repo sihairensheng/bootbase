@@ -1,0 +1,7 @@
+server:
+  port: 20000
+  tomcat:
+    uri-encoding: UTF-8
+com:
+  bluefox:
+    port: fuck
